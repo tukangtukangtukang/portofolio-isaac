@@ -356,7 +356,18 @@ import { projectsConfig } from "../config/projects";
       }
     }
 
+    // 根据虚拟索引获取真实项目索引并更新项目介绍（在轮播开始前）
+    function updateProjectDescriptionForVirtualIndex(virtualIndex: number) {
+      const realIndex = getRealProjectIndex(virtualIndex);
+      if (realIndex !== lastProjectIndex) {
+        lastProjectIndex = realIndex;
+        updateProjectDescription(realIndex);
+      }
+    }
+
     function goToItem(virtualIndex: number) {
+      // 在开始轮播动画前，先更新项目介绍
+      updateProjectDescriptionForVirtualIndex(virtualIndex);
       const snapX = getSnapPosition(virtualIndex);
       animateTo(snapX);
     }
@@ -416,7 +427,7 @@ import { projectsConfig } from "../config/projects";
         } else {
           animationFrameId = null;
           checkLoopJump();
-          // 动画结束后更新项目介绍
+          // 动画结束后确保项目介绍已更新到正确位置
           updateProjectDescriptionFromCarousel();
         }
       }
@@ -495,12 +506,10 @@ import { projectsConfig } from "../config/projects";
           }
             } else {
               const nearestIndex = findNearestItem();
+              // 在开始动画前更新项目介绍
+              updateProjectDescriptionForVirtualIndex(nearestIndex);
               const snapX = getSnapPosition(nearestIndex);
               animateTo(snapX);
-              // 拖拽结束后立即更新项目介绍
-              setTimeout(() => {
-                updateProjectDescriptionFromCarousel();
-              }, 100);
             }
 
         dragDistance = 0;
@@ -556,12 +565,10 @@ import { projectsConfig } from "../config/projects";
         isDragging = false;
 
         const nearestIndex = findNearestItem();
+        // 在开始动画前更新项目介绍
+        updateProjectDescriptionForVirtualIndex(nearestIndex);
         const snapX = getSnapPosition(nearestIndex);
         animateTo(snapX);
-        // 触摸结束后立即更新项目介绍
-        setTimeout(() => {
-          updateProjectDescriptionFromCarousel();
-        }, 100);
 
         pauseAutoPlay();
       }
