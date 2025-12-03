@@ -1,6 +1,7 @@
 ---
 import "../styles/home.css";
 import "../styles/posts.css";
+import "../styles/page-transitions.css";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 
@@ -118,18 +119,26 @@ const allTags = ["Backend", "Business", "CSS", "Design", "Frontend", "Gatsby", "
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>Blog Posts - WordPress Gatsby Blog</title>
+    <script>
+      // Disable browser scroll restoration and ensure page starts at top
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      // Immediately scroll to top on page load
+      window.scrollTo(0, 0);
+    </script>
   </head>
   <body>
     <Navigation />
     
     <main class="posts-page">
-      <div class="posts-container">
-        <div class="posts-header">
+      <div class="posts-container page-content">
+        <div class="posts-header posts-header-animate">
           <h1 class="posts-title">Blog Posts</h1>
           <p class="posts-subtitle">Explore our latest articles on web development, design, and technology</p>
         </div>
         
-        <div class="search-filter-section">
+        <div class="search-filter-section posts-content-animate">
           <div class="search-box">
             <input type="text" placeholder="Search posts..." class="search-input" id="search-input" />
             <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -139,7 +148,7 @@ const allTags = ["Backend", "Business", "CSS", "Design", "Frontend", "Gatsby", "
           </div>
         </div>
         
-        <div class="tags-filter">
+        <div class="tags-filter posts-content-animate">
           <span class="tags-label">Filter by tags:</span>
           <div class="tags-list">
             {allTags.map((tag) => (
@@ -150,7 +159,7 @@ const allTags = ["Backend", "Business", "CSS", "Design", "Frontend", "Gatsby", "
           </div>
         </div>
 
-        <div class="posts-list">
+        <div class="posts-list posts-content-animate">
           {Object.entries(groupedPosts).map(([date, datePosts]) => (
             <div class="date-group" data-date={date}>
               <h2 class="date-header">{date}</h2>
@@ -204,6 +213,47 @@ const allTags = ["Backend", "Business", "CSS", "Design", "Frontend", "Gatsby", "
 </html>
 
 <script>
+  // Ensure scroll position is at top after DOM loads
+  document.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+  });
+  // Also ensure on page show (handles back/forward navigation)
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      window.scrollTo(0, 0);
+    }
+  });
+
+  // Initialize page transition animations
+  document.addEventListener('DOMContentLoaded', () => {
+    // Trigger page content animation
+    const pageContent = document.querySelector('.page-content');
+    if (pageContent) {
+      requestAnimationFrame(() => {
+        pageContent.classList.add('visible');
+      });
+    }
+
+    // Trigger header animation
+    const header = document.querySelector('.posts-header-animate');
+    if (header) {
+      requestAnimationFrame(() => {
+        header.classList.add('visible');
+      });
+    }
+
+    // Trigger content animations
+    const contentElements = document.querySelectorAll('.posts-content-animate');
+    contentElements.forEach((element) => {
+      requestAnimationFrame(() => {
+        element.classList.add('visible');
+      });
+    });
+  });
+
   // 展开/收起功能
   const postToggles = document.querySelectorAll('.post-toggle');
   const postSummaries = document.querySelectorAll('.post-summary');
