@@ -1,7 +1,7 @@
 // Site-wide configuration
 export const siteConfig = {
   // Site metadata
-  name: "Astro Blog",
+  name: "Isaac's Portfolio",
   title: "Astro Blog",
   description: "A modern blog built with Astro",
   
@@ -16,7 +16,7 @@ export const siteConfig = {
   // Hero Section
   hero: {
     prefix: "I am",
-    name: "Someone Name",
+    name: "Bonaventura Isaac Guric",
     intro: "I am a web developer and blogger, passionate about sharing knowledge and building cool things with code.\nWelcome to my portfolio blog!",
     avatar: "/image/20943608.jpeg",
     buttons: {
