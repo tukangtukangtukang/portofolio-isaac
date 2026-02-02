@@ -18,7 +18,7 @@ export const siteConfig = {
     prefix: "I am",
     name: "Bonaventura Isaac Guric",
     intro: "Saya adalah mahasiswa IT dari Universitas AMIKOM Yogyakarta yang memiliki passion di bidang Fullstack Development. Saat ini sedang menyelesaikan skripsi melalui jalur magang profesional di PT. Petrolog Balikpapan.",
-    avatar: "/image/20943608.jpeg", // Pastikan file fotomu sudah ada di folder public/image
+    avatar: "/image/1.jpg", // Pastikan file fotomu sudah ada di folder public/image
     buttons: {
       viewPosts: "Lihat Proyek",
       contactMe: "Hubungi Saya",
@@ -26,7 +26,7 @@ export const siteConfig = {
     socialLinks: [
       { name: "LinkedIn", icon: "/svg/linkedin.svg", url: "https://www.linkedin.com/in/bonaventura-isaac-guric/" },
       { name: "GitHub", icon: "/svg/github.svg", url: "https://github.com/tukangtukangtukang" },
-      { name: "Instagram", icon: "/svg/instagram.svg", url: "https://instagram.com/isaac_guric" },
+      { name: "Instagram", icon: "/svg/instagram.svg", url: "https://instagram.com/tukangambunewangi" },
     ],
   },
   
