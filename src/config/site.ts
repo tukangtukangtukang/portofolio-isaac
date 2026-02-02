@@ -2,113 +2,108 @@
 export const siteConfig = {
   // Site metadata
   name: "Isaac's Portfolio",
-  title: "Astro Blog",
-  description: "A modern blog built with Astro",
+  title: "Isaac | IT Developer Portfolio",
+  description: "Portofolio Isaac - Mahasiswa IT AMIKOM Yogyakarta & Fullstack Developer",
   
   // Navigation
   navigation: {
     home: "Home",
-    posts: "Posts",
+    posts: "Projects", // Diubah jadi Projects agar lebih relevan
     contact: "Contact",
-    comments: "Comments",
+    comments: "Discussion",
   },
   
   // Hero Section
   hero: {
     prefix: "I am",
     name: "Bonaventura Isaac Guric",
-    intro: "I am a web developer and blogger, passionate about sharing knowledge and building cool things with code.\nWelcome to my portfolio blog!",
-    avatar: "/image/20943608.jpeg",
+    intro: "Saya adalah mahasiswa IT dari Universitas AMIKOM Yogyakarta yang memiliki passion di bidang Fullstack Development. Saat ini sedang menyelesaikan skripsi melalui jalur magang profesional di PT. Petrolog Balikpapan.",
+    avatar: "/image/20943608.jpeg", // Pastikan file fotomu sudah ada di folder public/image
     buttons: {
-      viewPosts: "View Posts",
-      contactMe: "Contact Me",
+      viewPosts: "Lihat Proyek",
+      contactMe: "Hubungi Saya",
     },
     socialLinks: [
-      { name: "Twitter", icon: "/svg/twitter.svg", url: "https://x.com/astrodotbuild" },
-      { name: "LinkedIn", icon: "/svg/linkedin.svg", url: "https://www.linkedin.com/company/astrodotbuild" },
-      { name: "Facebook", icon: "/svg/facebook.svg", url: "https://www.facebook.com/astrodotbuild" },
-      { name: "GitHub", icon: "/svg/github.svg", url: "https://github.com/tomcomtang/astro-cartoon-portfolio" },
+      { name: "LinkedIn", icon: "/svg/linkedin.svg", url: "https://www.linkedin.com/in/bonaventura-isaac-guric/" },
+      { name: "GitHub", icon: "/svg/github.svg", url: "https://github.com/tukangtukangtukang" },
+      { name: "Instagram", icon: "/svg/instagram.svg", url: "https://instagram.com/isaac_guric" },
     ],
   },
   
   // About Section
   about: {
-    title: "About Me",
-    text: "Hi, I'm Someone, a passionate web developer and blogger. I love exploring new technologies and sharing knowledge with the community. On this blog, you'll find my thoughts on web development, tutorials, and project showcases. I hope my content can inspire others in their coding journey.",
+    title: "Tentang Saya",
+    text: "Sebagai mahasiswa Universitas AMIKOM Yogyakarta, saya memiliki minat besar dalam membangun sistem web yang efisien. Pengalaman magang saya di Balikpapan memberikan kesempatan untuk mengimplementasikan teknologi seperti Node.js, Svelte, dan Docker dalam skala industri. Saya senang mengeksplorasi teknologi baru dan hobi saya di bidang perfumery memberikan perspektif unik dalam detail dan komposisi, baik dalam aroma maupun kodingan.",
   },
   
   // Contact Page
   contact: {
-    title: "Get In Touch",
-    subtitle: "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",
+    title: "Mari Berkolaborasi",
+    subtitle: "Saya selalu terbuka untuk diskusi mengenai proyek baru, ide kreatif, atau peluang profesional di bidang IT.",
     info: {
       email: {
         label: "Email",
-        value: "tom@example.com",
-        link: "mailto:tom@example.com",
+        value: "bonaventuraisaac52@gmail.com",
+        link: "mailto:bonaventuraisaac52@gmail.com",
       },
       phone: {
-        label: "Phone",
-        value: "+1 (234) 567-890",
-        link: "tel:+1 (234) 567-890",
+        label: "Location",
+        value: "Balikpapan / Yogyakarta",
+        link: "#",
       },
       location: {
-        label: "Location",
-        value: "San Francisco, CA",
+        label: "Status",
+        value: "Intern at PT. Petrolog Balikpapan",
       },
     },
     followMe: {
-      title: "Follow Me",
+      title: "Ikuti Saya",
       links: [
-        { name: "Twitter", icon: "/svg/twitter.svg", url: "https://x.com/astrodotbuild" },
-        { name: "LinkedIn", icon: "/svg/linkedin.svg", url: "https://www.linkedin.com/company/astrodotbuild" },
-        { name: "Facebook", icon: "/svg/facebook.svg", url: "https://www.facebook.com/astrodotbuild" },
-        { name: "GitHub", icon: "/svg/github.svg", url: "https://github.com/tomcomtang/astro-cartoon-portfolio" },
+        { name: "LinkedIn", icon: "/svg/linkedin.svg", url: "https://www.linkedin.com/in/bonaventura-isaac-guric/" },
+        { name: "GitHub", icon: "/svg/github.svg", url: "https://github.com/tukangtukangtukang" },
       ],
     },
     footerText: [
-      "I typically respond to messages within 24 hours during business days.",
-      "Looking forward to hearing from you! 🚀",
+      "Saya biasanya membalas pesan dalam waktu 24 jam.",
+      "Mari membangun sesuatu yang luar biasa! 🚀",
     ],
-    messageButton: "💬 Leave a Message",
+    messageButton: "💬 Kirim Pesan",
   },
   
   // Footer
   footer: {
-    copyright: "© 2025 Someone. All rights reserved.",
+    // Perbaikan: Menggunakan new Date() yang benar
+    copyright: `© ${new Date().getFullYear()} Bonaventura Isaac Guric. All rights reserved.`,
     links: [
       { text: "Privacy Policy", url: "#" },
       { text: "Terms of Service", url: "#" },
       { text: "Sitemap", url: "#" },
     ],
     github: {
-      text: "Star this project on Github",
-      url: "https://github.com/tomcomtang/astro-cartoon-portfolio",
+      text: "Lihat Kode Sumber di Github",
+      url: "https://github.com/tukangtukangtukang/portofolio-isaac",
     },
   },
   
   // Posts Page
   posts: {
-    title: "Blog Posts",
-    subtitle: "Explore our latest articles on web development, design, and technology",
-    searchPlaceholder: "Search posts...",
+    title: "Daftar Proyek & Blog",
+    subtitle: "Kumpulan dokumentasi proyek magang, side project, dan eksplorasi teknologi saya.",
+    searchPlaceholder: "Cari proyek...",
   },
   
   // Comments Page
   comments: {
-    title: "Comments & Discussion",
-    subtitle: "Share your thoughts, questions, or suggestions here. Let's connect and discuss!",
+    title: "Diskusi & Komentar",
+    subtitle: "Punya pertanyaan tentang proyek Petrolog atau sekadar ingin menyapa? Tulis di bawah ini!",
     guidelines: {
-      title: "Community Guidelines",
+      title: "Aturan Diskusi",
       items: [
-        "Be respectful and constructive in your comments",
-        "No spam, self-promotion, or advertising allowed",
-        "No personal attacks, hate speech, or harassment",
-        "Stay on topic and keep discussions relevant",
-        "No inappropriate, offensive, or illegal content",
-        "Use clear, friendly, and inclusive language",
+        "Gunakan bahasa yang sopan dan konstruktif",
+        "Dilarang melakukan spam atau promosi tanpa izin",
+        "Tetap fokus pada topik seputar IT dan pengembangan web",
+        "Gunakan bahasa yang inklusif dan ramah",
       ],
     },
   },
 };
-
