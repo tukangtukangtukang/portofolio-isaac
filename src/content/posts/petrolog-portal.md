@@ -28,4 +28,5 @@ Portal kini beroperasi dengan stabil dengan *uptime* tinggi. Dokumentasi deploym
 
 ### 🔗 Project Links
 
+* [**🌐 Kunjungi Live Demo**](https://satu.petrolog.my.id/)
 * [**💻 Lihat Kode Konfigurasi (GitHub)**](https://github.com/tukangtukangtukang/petrolog-dashboard)

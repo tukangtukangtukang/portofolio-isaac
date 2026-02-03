@@ -1,4 +1,6 @@
 ---
+import { siteConfig } from "../config/site";
+import Layout from "../layouts/Layout.astro";
 import "../styles/home.css";
 import "../styles/page-transitions.css";
 import Navigation from "../components/Navigation.astro";
@@ -12,10 +14,10 @@ import Footer from "../components/Footer.astro";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/jpeg" href="/image/1.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Blog</title>
+    <title>{siteConfig.title}</title>
     <script>
       // Disable browser scroll restoration and ensure page starts at top
       if ("scrollRestoration" in history) {
