@@ -5,6 +5,11 @@ import "../styles/page-transitions.css";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import { siteConfig } from "../config/site";
+
+// Ganti nomor ini dengan nomor WA kamu! (Format: 628xxx)
+const waNumber = "6282279801135"; 
+const waMessage = "Halo Isaac, saya tertarik berdiskusi tentang portofolio Anda.";
+const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
 ---
 
 <html lang="en">
@@ -13,13 +18,11 @@ import { siteConfig } from "../config/site";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>Get In Touch - Astro Blog</title>
+    <title>Contact - {siteConfig.name}</title>
     <script>
-      // Disable browser scroll restoration and ensure page starts at top
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
       }
-      // Immediately scroll to top on page load
       window.scrollTo(0, 0);
     </script>
   </head>
@@ -36,10 +39,10 @@ import { siteConfig } from "../config/site";
         </div>
 
         <div class="contact-grid">
-          <!-- Contact Info Card -->
           <div class="contact-card contact-card-animate">
             <h2 class="contact-card-title">Contact Info</h2>
             <div class="contact-info-list">
+              
               <div class="contact-info-item">
                 <div class="contact-icon-wrapper email-icon">
                   <img src="/svg/email.svg" alt="email icon" class="contact-icon" />
@@ -52,7 +55,7 @@ import { siteConfig } from "../config/site";
 
               <div class="contact-info-item">
                 <div class="contact-icon-wrapper phone-icon">
-                  <img src="/svg/phone.svg" alt="phone icon" class="contact-icon" />
+                  <img src="/svg/location.svg" alt="location icon" class="contact-icon" />
                 </div>
                 <div class="contact-info-content">
                   <div class="contact-info-label">{siteConfig.contact.info.phone.label}</div>
@@ -62,7 +65,10 @@ import { siteConfig } from "../config/site";
 
               <div class="contact-info-item">
                 <div class="contact-icon-wrapper location-icon">
-                  <img src="/svg/location.svg" alt="location icon" class="contact-icon" />
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                    <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
                 <div class="contact-info-content">
                   <div class="contact-info-label">{siteConfig.contact.info.location.label}</div>
@@ -70,17 +76,25 @@ import { siteConfig } from "../config/site";
                 </div>
               </div>
             </div>
+            
             <div class="contact-message-button-wrapper">
-              <a href="/comments" class="contact-message-button">{siteConfig.contact.messageButton}</a>
+              <a 
+                href={waLink} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="contact-message-button"
+              >
+                {siteConfig.contact.messageButton} 
+                <span style="margin-left:8px">↗</span>
+              </a>
             </div>
           </div>
 
-          <!-- Follow Me Card -->
           <div class="contact-card contact-card-animate">
             <h3 class="contact-card-subtitle">{siteConfig.contact.followMe.title}</h3>
             <div class="social-icons-list">
               {siteConfig.contact.followMe.links.map((social) => (
-                <a href={social.url} target="_blank" rel="noopener noreferrer" class="social-icon-link" title={social.name.toLowerCase()}>
+                <a href={social.url} target="_blank" rel="noopener noreferrer" class="social-icon-link" title={social.name}>
                   <img src={social.icon} alt={`${social.name} icon`} />
                 </a>
               ))}
@@ -99,47 +113,26 @@ import { siteConfig } from "../config/site";
     <Footer />
 
     <script>
-      // Ensure scroll position is at top after DOM loads
       document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, 0);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-        }, 0);
+        setTimeout(() => { window.scrollTo(0, 0); }, 0);
       });
-      // Also ensure on page show (handles back/forward navigation)
       window.addEventListener('pageshow', (event) => {
-        if (event.persisted) {
-          window.scrollTo(0, 0);
-        }
+        if (event.persisted) { window.scrollTo(0, 0); }
       });
 
-      // Initialize page transition animations
       document.addEventListener('DOMContentLoaded', () => {
-        // Trigger page content animation
         const pageContent = document.querySelector('.page-content');
-        if (pageContent) {
-          requestAnimationFrame(() => {
-            pageContent.classList.add('visible');
-          });
-        }
+        if (pageContent) requestAnimationFrame(() => pageContent.classList.add('visible'));
 
-        // Trigger header animation
         const header = document.querySelector('.contact-header-animate');
-        if (header) {
-          requestAnimationFrame(() => {
-            header.classList.add('visible');
-          });
-        }
+        if (header) requestAnimationFrame(() => header.classList.add('visible'));
 
-        // Trigger card animations
         const cards = document.querySelectorAll('.contact-card-animate');
         cards.forEach((card) => {
-          requestAnimationFrame(() => {
-            card.classList.add('visible');
-          });
+          requestAnimationFrame(() => card.classList.add('visible'));
         });
       });
     </script>
   </body>
 </html>
-

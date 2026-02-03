@@ -10,7 +10,6 @@ export const siteConfig = {
     home: "Home",
     posts: "Projects", // Diubah jadi Projects agar lebih relevan
     contact: "Contact",
-    comments: "Discussion",
   },
   
   // Hero Section
